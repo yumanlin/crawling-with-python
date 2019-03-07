@@ -1,0 +1,49 @@
+控制键盘和滚动条
+
+控制滚动条的方法
+# coding=utf-8
+from selenium import webdriver
+import time
+'''
+以简书首页为
+''' 
+driver=webdriver.Firefox()
+
+#输入的是URL
+driver.get("http://www.jianshu.com")
+#等待页面加载3S time.sleep(3)
+'''
+0：为顶部；1000000：为底部
+#将滚动条移动到页面的顶部 
+js="var q=document.documentElement.scrollTop=0"
+driver.execute_script(js)
+#页面内嵌窗口浏览条滚动
+js="var q=document.getElementById('id').scrollTop=1000"
+driver.execute_script(js)
+time.sleep(3)
+''' 
+#将页面滚动条拖到底部
+js="var q=document.documentElement.scrollTop=100000" 
+driver.execute_script(js)
+time.sleep(3)
+
+当只针对内置滚动条的时候
+# coding=utf-8 
+from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+'''
+1.通过系统键盘：DOWN来操作
+2.使用简书首页
+3.内嵌滚动条 
+''' 
+driver = webdriver.Firefox()
+driver.get("http://www.jianshu.com")
+#最大化窗口 driver.maximize_window()
+# 通过按向下键将页面滚动条拖到底部 driver.find_element_by_xpath("xpath").send_keys(Keys.DOWN)
+time.sleep(1)
+
+链接：https://www.jianshu.com/p/73a3e5a978c1
+
+控制键盘
+
